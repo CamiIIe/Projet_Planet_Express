@@ -2,10 +2,14 @@ package com.example.projet_planet_express;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.time.Instant;
 
 public class Planet_Express_Home extends AppCompatActivity {
 
@@ -24,5 +28,20 @@ public class Planet_Express_Home extends AppCompatActivity {
 
         inscription.setPaintFlags(inscription.getPaintFlags());
 
+        inscription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Planet_Express_Home.this, InscriptionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        connexion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Planet_Express_Home.this, ConnexionActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
