@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Projet_Planet_Express</string>
+    <string name="pas_de_compte_inscris_toi"><u>Pas de compte ? Inscris-toi !</u></string>
 </resources>
