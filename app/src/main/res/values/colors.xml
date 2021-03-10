@@ -7,4 +7,14 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Customs color -->
+    <color name="red_dark">#C65858</color>
+    <color name="pink_light">#DFA7A7</color>
+    <color name="orange">#F29C5C</color>
+    <color name="yellow_light">#FDEBDE</color>
+    <color name="blue_dark">#324370</color>
+    <color name="pink_sweet">#F08897</color>
+    <color name="pink_light_2">#EFCCCC</color>
+
 </resources>

@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Projet_Planet_Express">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Planet_Express_Home">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
