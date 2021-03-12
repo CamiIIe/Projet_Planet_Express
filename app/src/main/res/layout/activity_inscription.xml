@@ -1,37 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/pink_light_2"
+    android:orientation="vertical"
     tools:context=".InscriptionActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/planet_express_round" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@mipmap/planet_express_round" />
-
-        <TextView
+    <TextView
             android:layout_width="250dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="casual"
             android:gravity="center"
-            android:text="Inscription"
+            android:text="@string/inscription"
             android:textColor="@color/red_dark"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="350dp"
-            android:layout_height="420dp"
+            android:layout_height="380dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@color/pink_light"
@@ -42,9 +39,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="Informations personnelles"
+                android:text="@string/informations_personnelles"
                 android:textColor="@color/red_dark"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -54,7 +51,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:hint="Nom" />
+                android:hint="@string/nom" />
 
             <EditText
                 android:id="@+id/et_prenom"
@@ -63,60 +60,25 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:hint="Prénom" />
+                android:hint="@string/pr_nom" />
 
-                 <EditText
-                     android:id="@+id/et_identifiant"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                     android:layout_marginLeft="10dp"
-                     android:layout_marginTop="10dp"
-                     android:layout_marginRight="10dp"
-                     android:hint="Identifiant"/>
-           
-            <LinearLayout
+            <EditText
+                android:id="@+id/et_identifiant"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:hint="@string/identifiant" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:text="Date de naissance"
-                    android:textColor="@color/red_dark"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="10dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <EditText
+                android:id="@+id/et_date_naissance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-                <EditText
-                    android:id="@+id/et_date_naissance"
-                    android:layout_width="150dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:inputType="date" />
-
-                <Button
-                    android:id="@+id/btn_date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="20dp"
-                    android:text="Sélectionne"/>
-
-            </LinearLayout>
-
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:hint="@string/date_de_naissance" />
 
             <EditText
                 android:id="@+id/et_password"
@@ -125,7 +87,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:hint="Veuillez saisir un mot de passe"
+                android:hint="@string/veuillez_saisir_un_mot_de_passe"
                 android:inputType="textPassword" />
 
             <EditText
@@ -135,7 +97,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:hint="Confirmer le mot de passe"
+                android:hint="@string/confirmer_le_mot_de_passe"
                 android:inputType="textPassword" />
 
         </LinearLayout>
@@ -143,8 +105,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_annuler"
@@ -154,7 +116,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
                 android:gravity="center"
-                android:text="@string/annuler" />
+                android:text="@string/annuler"
+                android:layout_marginEnd="20dp"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/btn_valider"
@@ -163,10 +127,9 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="@string/valider" />
+                android:text="@string/valider"
+                tools:ignore="ButtonStyle" />
 
         </LinearLayout>
 
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
