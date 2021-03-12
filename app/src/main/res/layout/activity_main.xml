@@ -4,15 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/pink_light_2"
+    tools:context=".Planet_Express_Home">
 
-    <TextView
+    <ImageView
+        android:id="@+id/logo_app"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:src="@drawable/planet_express"
+        tools:ignore="MissingConstraints"
+        android:contentDescription="Logo" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:id="@+id/btn_connexion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="400dp"
+            android:layout_marginLeft="30dp"
+            android:text="Connexion"
+            android:textColor="@color/pink_light_2" />
+
+        <TextView
+            android:id="@+id/tv_inscription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="454dp"
+            android:text="@string/pas_de_compte_inscris_toi"
+            android:textColor="@color/pink_sweet" />
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
