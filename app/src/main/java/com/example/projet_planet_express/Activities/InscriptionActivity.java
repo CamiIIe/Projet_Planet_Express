@@ -79,7 +79,7 @@ public class InscriptionActivity extends AppCompatActivity {
                 if (verif_mdp()) {
                     createChauffeur();
                 } else {
-                    titre.setText("Erreur lors de la vérification des mots de passes");
+                    titre.setText("Erreur lors de la vérification des mots de passe");
                 }
             }
         });
@@ -97,7 +97,6 @@ public class InscriptionActivity extends AppCompatActivity {
     }
 
     //Méthodes privées à l'activité Inscription
-
     //Méthode pour créer un chauffeur
     private Chauffeur createChauffeur() {
         String chauffeur_nom = nom.getText().toString();
@@ -110,11 +109,13 @@ public class InscriptionActivity extends AppCompatActivity {
         return chauffeur;
     }
 
-    //TODO Méthode pour comparer les mdp
+    //Méthode pour comparer les mdp
     private boolean verif_mdp() {
         String mot1 = mdp.getText().toString();
         String mot2 = confirmMDP.getText().toString();
 
-        return true;
+        return mot1.equals(mot2);
     }
+
+    //TODO Méthode pour vérifier que le chauffeur n'est pas déjà enregistré dans la base de données
 }
