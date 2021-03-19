@@ -1,6 +1,4 @@
-package com.example.projet_planet_express.Class;
-
-import android.widget.EditText;
+package com.example.projet_planet_express.Classes;
 
 public class Chauffeur {
 

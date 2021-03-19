@@ -1,4 +1,4 @@
-package com.example.projet_planet_express.Class;
+package com.example.projet_planet_express.Classes;
 
 import android.text.format.Time;
 

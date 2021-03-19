@@ -7,9 +7,9 @@
         <item name="colorOnPrimary">@color/pink_light</item>
 
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/purple_700</item>
+        <item name="colorSecondary">#A3047B</item>
         <item name="colorSecondaryVariant">@color/pink_sweet</item>
-        <item name="colorOnSecondary">@color/purple_200</item>
+        <item name="colorOnSecondary">#E75DEC</item>
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
@@ -39,6 +39,26 @@
     <style name="Tableau" parent="Theme.Projet_Planet_Express">
         <item name="android:layout_marginBottom">1dp</item>
         <item name="background">@drawable/table_border</item>
+    </style>
+
+    <!-- Style pour les paramètres -->
+    <style name="Parametre" parent="Theme.MaterialComponents.DayNight">
+        <item name = "android:windowActionBar">false</item>
+        <item name = "android:windowNoTitle">true</item>
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/red_dark</item>
+        <item name="colorPrimaryVariant">@color/red_light</item>
+        <item name="colorOnPrimary">@color/pink_light</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#A3047B</item>
+        <item name="colorSecondaryVariant">@color/pink_sweet</item>
+        <item name="colorOnSecondary">#E75DEC</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
     </style>
 
 </resources>

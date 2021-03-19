@@ -1,7 +1,6 @@
 package com.example.projet_planet_express.Activities;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,19 +10,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
-import com.example.projet_planet_express.Fragment.BienvenueFragment;
-import com.example.projet_planet_express.Fragment.FormulaireVehiculeFragment;
-import com.example.projet_planet_express.Fragment.ProfilFragment;
+import com.example.projet_planet_express.Fragments.BienvenueFragment;
+import com.example.projet_planet_express.Fragments.ColisFragment;
+import com.example.projet_planet_express.Fragments.HistoriqueFragment;
+import com.example.projet_planet_express.Fragments.ProfilFragment;
+import com.example.projet_planet_express.Fragments.TrajetFragment;
+import com.example.projet_planet_express.Fragments.VehiculeFragment;
 import com.example.projet_planet_express.R;
 import com.google.android.material.navigation.NavigationView;
 
@@ -93,6 +89,38 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
             fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.principal_frame_layout, new ProfilFragment()).commit();
             drawer.closeDrawer(GravityCompat.START);
+
+        } else if(item.getItemId() == R.id.principal_vehicule) {
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.principal_frame_layout, new VehiculeFragment()).commit();
+            drawer.closeDrawer(GravityCompat.START);
+
+        } else if (item.getItemId() == R.id.principal_trajets) {
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.principal_frame_layout, new TrajetFragment()).commit();
+            drawer.closeDrawer(GravityCompat.START);
+
+        } else if (item.getItemId() == R.id.principal_colis) {
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.principal_frame_layout, new ColisFragment()).commit();
+            drawer.closeDrawer(GravityCompat.START);
+
+        } else if (item.getItemId() == R.id.principal_historique) {
+            fragmentManager = getSupportFragmentManager();
+            fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.add(R.id.principal_frame_layout, new HistoriqueFragment()).commit();
+            drawer.closeDrawer(GravityCompat.START);
+
+        } else if (item.getItemId() == R.id.principal_parametre) {
+            Intent intent = new Intent(PrincipalActivity.this, ParametresActivity.class);
+            startActivity(intent);
+
+        } else {
+            Intent intent = new Intent(PrincipalActivity.this, Planet_Express_Home.class);
+            startActivity(intent);
         }
         return true;
     }

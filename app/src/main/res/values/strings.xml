@@ -34,4 +34,8 @@
     <string name="mon_historique">Mon historique</string>
     <string name="param_tres">Paramètres</string>
     <string name="d_connexion">Déconnexion</string>
+    <string name="livr_s">Livrés</string>
+    <string name="a_transporter">A transporter</string>
+    <string name="a_venir">A venir</string>
+    <string name="termin_s">Terminés</string>
 </resources>

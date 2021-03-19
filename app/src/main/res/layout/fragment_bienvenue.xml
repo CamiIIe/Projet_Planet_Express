@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/pink_light_2"
-    tools:context=".Fragment.BienvenueFragment">
+    tools:context=".Fragments.BienvenueFragment">
 
     <ImageView
         android:layout_width="wrap_content"
