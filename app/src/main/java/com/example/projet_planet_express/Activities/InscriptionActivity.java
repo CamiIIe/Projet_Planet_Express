@@ -16,7 +16,6 @@ import com.example.projet_planet_express.Class.Chauffeur;
 import com.example.projet_planet_express.R;
 
 import java.util.Calendar;
-import java.util.Date;
 
 public class InscriptionActivity extends AppCompatActivity {
 
@@ -32,6 +31,9 @@ public class InscriptionActivity extends AppCompatActivity {
     EditText confirmMDP;
 
     DatePickerDialog pickerDialog;
+    int lastSelectedYear;
+    int lastSelectedMonth;
+    int lastSelectedDay;
 
     Button valider;
     Button annuler;
@@ -51,19 +53,7 @@ public class InscriptionActivity extends AppCompatActivity {
         dateNaissance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final Calendar calendar = Calendar.getInstance();
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-                int month = calendar.get(Calendar.MONTH);
-                int year = calendar.get(Calendar.YEAR);
-
-                //Faire apparaître le calendrier
-                pickerDialog = new DatePickerDialog(InscriptionActivity.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker spinner, int year, int month, int dayOfMonth) {
-                        dateNaissance.setText(day + "/" + month + "/" + year);
-                    }
-                }, year, month, day);
-                pickerDialog.show();
+                 selectDate();
             }
         });
 
@@ -96,7 +86,32 @@ public class InscriptionActivity extends AppCompatActivity {
 
     }
 
+
+
     //Méthodes privées à l'activité Inscription
+    //Méthode pour sélection la date
+    private void selectDate() {
+        final Calendar calendar = Calendar.getInstance();
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        int month = calendar.get(Calendar.MONTH);
+        int year = calendar.get(Calendar.YEAR);
+
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                dateNaissance.setText(day + "/" + month + "/" + year);
+
+                lastSelectedYear = year;
+                lastSelectedMonth = month;
+                lastSelectedDay = day;
+            }
+        };
+
+        DatePickerDialog datePickerDialog = null;
+        datePickerDialog = new DatePickerDialog(this, android.R.style.Theme_Holo_Light_Dialog_NoActionBar, dateSetListener, lastSelectedYear, lastSelectedMonth, lastSelectedDay);
+        datePickerDialog.show();
+    }
+
     //Méthode pour créer un chauffeur
     private Chauffeur createChauffeur() {
         String chauffeur_nom = nom.getText().toString();

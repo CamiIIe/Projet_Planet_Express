@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/principal_profil"
+            android:icon="@drawable/ic_profil"
+            android:title="@string/mon_profil" />
+
+        <item
+            android:id="@+id/principal_vehicule"
+            android:icon="@drawable/ic_vehicule"
+            android:title="@string/mon_v_hicule" />
+
+        <item
+            android:id="@+id/principal_trajets"
+            android:icon="@drawable/ic_trajets"
+            android:title="@string/mes_trajets" />
+
+        <item
+            android:id="@+id/principal_colis"
+            android:icon="@mipmap/icon_colis"
+            android:title="@string/mes_colis" />
+
+        <item
+            android:id="@+id/principal_historique"
+            android:icon="@drawable/ic_historique"
+            android:title="@string/mon_historique" />
+    </group>
+
+    <group android:checkableBehavior="all">
+        <item
+            android:id="@+id/principal_parametre"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/param_tres" />
+
+        <item
+            android:id="@+id/principal_deconnexion"
+            android:icon="@mipmap/icon_deconnexion"
+            android:title="@string/d_connexion" />
+    </group>
+</menu>

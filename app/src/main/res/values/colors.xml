@@ -11,10 +11,11 @@
     <!-- Customs color -->
     <color name="red_dark">#C65858</color>
     <color name="pink_light">#DFA7A7</color>
-    <color name="orange">#F29C5C</color>
+    <color name="red_light">#F25C5C</color>
     <color name="yellow_light">#FDEBDE</color>
     <color name="blue_dark">#324370</color>
     <color name="pink_sweet">#F08897</color>
     <color name="pink_light_2">#EFCCCC</color>
+    <color name="pink_light_3">#EBDADA</color>
 
 </resources>

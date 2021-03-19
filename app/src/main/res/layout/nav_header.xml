@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_gravity="start"
+    android:background="@color/pink_light_2"
+    android:orientation="vertical">
+    
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/planet_express_round"
+        android:id="@+id/nav_header_principal"/>
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="Planet Express"
+        android:textColor="@color/red_dark"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+</LinearLayout>
