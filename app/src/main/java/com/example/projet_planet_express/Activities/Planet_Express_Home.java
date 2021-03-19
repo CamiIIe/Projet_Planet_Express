@@ -33,6 +33,10 @@ public class Planet_Express_Home extends AppCompatActivity {
         inscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                FirebaseDatabase database = FirebaseDatabase.getInstance();
+//                DatabaseReference myRef = database.getReference("message");
+//
+//                myRef.setValue("Hello, World!");
                 Intent intent = new Intent(Planet_Express_Home.this, InscriptionActivity.class);
                 startActivity(intent);
             }

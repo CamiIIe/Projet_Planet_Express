@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.example.projet_planet_express.Class.Chauffeur;
 import com.example.projet_planet_express.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 
@@ -62,12 +64,16 @@ public class InscriptionActivity extends AppCompatActivity {
 
         //Bouton valider
         valider = findViewById(R.id.btn_valider);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference refChauffeur = database.getReference("chauffeur");
         valider.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
                 if (verif_mdp()) {
-                    createChauffeur();
+                    String key = refChauffeur.push().getKey();
+                    Chauffeur chauffeurInscrit = createChauffeur();
+                    refChauffeur.child(key).setValue(chauffeurInscrit);
                 } else {
                     titre.setText("Erreur lors de la vérification des mots de passe");
                 }
