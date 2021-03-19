@@ -12,7 +12,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.projet_planet_express.Class.Chauffeur;
+import com.example.projet_planet_express.Classes.Chauffeur;
 import com.example.projet_planet_express.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
