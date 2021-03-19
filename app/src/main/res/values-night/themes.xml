@@ -3,12 +3,12 @@
     <style name="Theme.Projet_Planet_Express" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/red_dark</item>
-        <item name="colorPrimaryVariant">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/red_light</item>
         <item name="colorOnPrimary">@color/pink_light</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">@color/blue_dark</item>
         <item name="colorSecondaryVariant">@color/pink_sweet</item>
-        <item name="colorOnSecondary">@color/blue_dark</item>
+        <item name="colorOnSecondary">@color/teal_200</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->

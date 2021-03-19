@@ -1,18 +1,44 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Projet_Planet_Express" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Projet_Planet_Express" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/red_dark</item>
-        <item name="colorPrimaryVariant">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/red_light</item>
         <item name="colorOnPrimary">@color/pink_light</item>
 
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">@color/purple_700</item>
         <item name="colorSecondaryVariant">@color/pink_sweet</item>
-        <item name="colorOnSecondary">@color/blue_dark</item>
+        <item name="colorOnSecondary">@color/purple_200</item>
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- Style pour faire disparaître l'action bar de base de l'application -->
+    <style name = "NoActionBar" parent = "Theme.Projet_Planet_Express">
+        <item name = "android:windowActionBar">false</item>
+        <item name = "android:windowNoTitle">true</item>
+    </style>
+
+    <!-- Style pour la toolbar et ses icones -->
+    <style name="ToolbarColoredIcons" parent="Theme.Projet_Planet_Express">
+        <item name="android:textColorSecondary">@color/pink_light_2</item>
+    </style>
+
+    <!-- Style pour le DatePicker Spinner -->
+    <style name="Spinner" parent="Theme.Projet_Planet_Express">
+        <item name="colorControlNormal">@color/red_dark</item>
+        <item name="colorControlActivated">@color/red_light</item>
+        <item name="android:editTextStyle">@color/pink_light</item>
+    </style>
+
+    <!-- Style pour un tableau de data -->
+    <style name="Tableau" parent="Theme.Projet_Planet_Express">
+        <item name="android:layout_marginBottom">1dp</item>
+        <item name="background">@drawable/table_border</item>
+    </style>
+
 </resources>

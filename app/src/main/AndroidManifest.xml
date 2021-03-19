@@ -8,18 +8,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Projet_Planet_Express">
-        <activity android:name=".Activities.Planet_Express_Home">
+        android:theme="@style/NoActionBar">
+        <activity android:name=".Activities.PrincipalActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activities.Planet_Express_Home" />
         <activity android:name=".Activities.InscriptionActivity">
 
+
         </activity>
-        <activity android:name=".Activities.ConnexionActivity"/>
+        <activity android:name=".Activities.ConnexionActivity" />
     </application>
 
 </manifest>
