@@ -2,6 +2,7 @@ package com.example.projet_planet_express.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,14 +11,22 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.projet_planet_express.R;
+import com.firebase.ui.auth.AuthMethodPickerLayout;
+import com.firebase.ui.auth.AuthUI;
+import com.google.firebase.auth.ActionCodeSettings;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Arrays;
 
 public class Planet_Express_Home extends AppCompatActivity {
 
     ImageView logo_app;
     Button connexion;
     TextView inscription;
+
+    private static final int RC_SIGN_IN = 123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +42,6 @@ public class Planet_Express_Home extends AppCompatActivity {
         inscription.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                FirebaseDatabase database = FirebaseDatabase.getInstance();
-//                DatabaseReference myRef = database.getReference("message");
-//
-//                myRef.setValue("Hello, World!");
                 Intent intent = new Intent(Planet_Express_Home.this, InscriptionActivity.class);
                 startActivity(intent);
             }
@@ -48,6 +53,7 @@ public class Planet_Express_Home extends AppCompatActivity {
                 Intent intent = new Intent(Planet_Express_Home.this, ConnexionActivity.class);
                 startActivity(intent);
             }
+
         });
     }
 }

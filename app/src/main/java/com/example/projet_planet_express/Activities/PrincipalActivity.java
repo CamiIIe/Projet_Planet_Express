@@ -13,6 +13,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.projet_planet_express.Fragments.BienvenueFragment;
 import com.example.projet_planet_express.Fragments.ColisFragment;
@@ -22,6 +24,8 @@ import com.example.projet_planet_express.Fragments.TrajetFragment;
 import com.example.projet_planet_express.Fragments.VehiculeFragment;
 import com.example.projet_planet_express.R;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class PrincipalActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -42,6 +46,10 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
     //Fragments
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
+
+    //Instance Firebase
+    private FirebaseAuth authentification;
+    private FirebaseUser firebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +86,23 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
         });
         */
         getSupportFragmentManager().beginTransaction().add(R.id.principal_frame_layout, new BienvenueFragment()).commit();
+
+        //Récupération de l'instance Firebase pour l'inscription
+        authentification = FirebaseAuth.getInstance();
+        firebaseUser = authentification.getCurrentUser();
+
+        /*
+        TextView view = findViewById(R.id.frag_bienvenue_tv_corps);
+        view.setText("Perfect");
+        //view.setText(firebaseUser.getEmail().toString());
+
+        /*
+        if (isCurrentUserLogged()) {
+            TextView view = findViewById(R.id.frag_bienvenue_tv_corps);
+            view.setText("Perfect");
+        }
+        */
+
     }
 
     //Méthodes publiques à l'activité Principale
@@ -119,11 +144,28 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
             startActivity(intent);
 
         } else {
-            Intent intent = new Intent(PrincipalActivity.this, Planet_Express_Home.class);
-            startActivity(intent);
+            //Permet de déconnecter l'utilisateur et renvoie à l'activité de départ : Planet_Express_Home
+            FirebaseAuth.getInstance().signOut();
+            FirebaseUser user = authentification.getCurrentUser();
+            deconnectUI(user);
         }
         return true;
     }
 
     //Méthodes privés à l'activité Principale
+    //Méthode de déconnexion de l'utilisateur FirebaseUser
+    private void deconnectUI(FirebaseUser user) {
+        if (user == null) {
+            Toast.makeText(this, "Déconnexion réussie", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(this, Planet_Express_Home.class));
+        } else {
+            Toast.makeText(this, "Déconnexion échouée", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    //Méthode pour vérifier que l'utilisateur est bien log
+    private boolean isCurrentUserLogged() {
+        return (authentification.getCurrentUser() != null);
+    }
+
 }

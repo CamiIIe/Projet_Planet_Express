@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Projet_Planet_Express</string>
+    <string name="app_name">Planet Express Chauffeur</string>
     <string name="pas_de_compte_inscris_toi"><u>Pas de compte ? Inscris-toi !</u></string>
     <string name="valider">Valider</string>
     <string name="annuler">Annuler</string>
@@ -38,4 +38,15 @@
     <string name="a_transporter">A transporter</string>
     <string name="a_venir">A venir</string>
     <string name="termin_s">Terminés</string>
+    <string name="tous">Tous</string>
+    <string name="aucun_v_hicule_renseign">Aucun véhicule renseigné !</string>
+    <string name="adresse_mail">Adresse mail</string>
+
+    <!-- Pour l'identification de Facebook -->
+
+    <!-- ... -->
+    <string name="facebook_application_id" translatable="false">APP_ID</string>
+    <!-- Facebook Application ID, prefixed by 'fb'. Enables Chrome Custom tabs. -->
+    <string name="facebook_login_protocol_scheme" translatable="false">fbAPP_ID</string>
+
 </resources>

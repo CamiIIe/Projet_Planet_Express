@@ -90,7 +90,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:gravity="left"
-            android:text="@string/identifiant"
+            android:text="@string/adresse_mail"
             android:textColor="@color/red_dark"
             android:textSize="20dp"
             android:textStyle="bold" />

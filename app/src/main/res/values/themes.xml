@@ -9,7 +9,7 @@
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#A3047B</item>
         <item name="colorSecondaryVariant">@color/pink_sweet</item>
-        <item name="colorOnSecondary">#E75DEC</item>
+        <item name="colorOnSecondary">#E9ACEC</item>
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
@@ -52,13 +52,11 @@
         <item name="colorOnPrimary">@color/pink_light</item>
 
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#A3047B</item>
+        <item name="colorSecondary">#AA0781</item>
         <item name="colorSecondaryVariant">@color/pink_sweet</item>
-        <item name="colorOnSecondary">#E75DEC</item>
+        <item name="colorOnSecondary">@color/pink_light</item>
 
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-
     </style>
-
 </resources>
