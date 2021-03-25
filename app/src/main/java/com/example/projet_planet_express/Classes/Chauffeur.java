@@ -2,11 +2,11 @@ package com.example.projet_planet_express.Classes;
 
 public class Chauffeur {
 
-    private static int id = 0;
+    private int id = 0;
     private String nom;
     private String prenom;
-    private String identifiant;
-    private String date;            //TODO Date ou String ?
+    private String email;
+    private String date;
     private String mdp;
 
     //Constructeurs
@@ -14,22 +14,26 @@ public class Chauffeur {
         id++;
     }
 
-    public Chauffeur(String nom, String prenom, String identifiant, String date, String mdp) {
+    public Chauffeur(String nom, String prenom, String email, String date) {
         id++;
         this.nom = nom;
         this.prenom = prenom;
-        this.identifiant = identifiant;
+        this.email = email;
+        this.date = date;
+    }
+
+    public Chauffeur(String nom, String prenom, String email, String date, String mdp) {
+        id++;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
         this.date = date;
         this.mdp = mdp;
     }
 
     //Getters et Setters des propriétés de la classe
-    public static int getId() {
+    public int getId() {
         return id;
-    }
-
-    public static void setId(int id) {
-        Chauffeur.id = id;
     }
 
     public String getNom() {
@@ -48,12 +52,12 @@ public class Chauffeur {
         this.prenom = prenom;
     }
 
-    public String getIdentifiant() {
-        return identifiant;
+    public String getEmail() {
+        return email;
     }
 
-    public void setIdentifiant(String identifiant) {
-        this.identifiant = identifiant;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getDate() {

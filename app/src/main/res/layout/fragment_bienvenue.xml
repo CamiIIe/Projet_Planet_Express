@@ -35,6 +35,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="200dp"
-        android:text="Hello"
+        android:textColor="@color/pink_sweet" />
+
+    <TextView
+        android:id="@+id/frag_bienvenue_tv_corps2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="400dp"
         android:textColor="@color/pink_sweet" />
 </FrameLayout>
