@@ -37,7 +37,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="214dp"
+            android:layout_marginLeft="200dp"
             android:src="@drawable/ic_vertical_point"
             app:tint="@color/pink_light_2"
             android:layout_marginStart="214dp" />

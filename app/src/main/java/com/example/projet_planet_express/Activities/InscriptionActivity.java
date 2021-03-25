@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -53,6 +54,7 @@ public class InscriptionActivity extends AppCompatActivity {
     //L'instance de Firebase
     private FirebaseDatabase database;
     private FirebaseAuth authentification;
+    private DatabaseReference refChauffeur;
 
     //Les Boutons
     Button valider;
@@ -69,7 +71,7 @@ public class InscriptionActivity extends AppCompatActivity {
         titre = findViewById(R.id.tv_inscription);
         nom = findViewById(R.id.et_nom);
         prenom = findViewById(R.id.et_prenom);
-        email = findViewById(R.id.et_identifiant);
+        email = findViewById(R.id.et_email);
 
         //Date de naissance du chauffeur
         dateNaissance = findViewById(R.id.et_date_naissance);
@@ -89,8 +91,10 @@ public class InscriptionActivity extends AppCompatActivity {
 
         //Bouton valider
         valider = findViewById(R.id.btn_valider);
+
+        //Database
         database = FirebaseDatabase.getInstance();
-        DatabaseReference refChauffeur = database.getReference("chauffeur");
+        refChauffeur = database.getReference("chauffeur");
 
         valider.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +106,7 @@ public class InscriptionActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<AuthResult> task) {
                                             if (task.isSuccessful()) {
                                                 FirebaseUser user = authentification.getCurrentUser();
+                                                createUserData(createChauffeur());
                                                 updateUI(user);
                                             } else {
                                                 updateUI(null);
@@ -109,9 +114,6 @@ public class InscriptionActivity extends AppCompatActivity {
                                         }
                                     });
 
-                    //String key = refChauffeur.push().getKey();
-                    //Chauffeur chauffeurInscrit = createChauffeur();
-                    //refChauffeur.child(key).setValue(chauffeurInscrit);
                 } else {
                     titre.setText("Erreur lors de la vérification des mots de passe");
                 }
@@ -128,15 +130,6 @@ public class InscriptionActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    public void updateUI(FirebaseUser user) {
-        if (user != null) {
-            Toast.makeText(this, "Inscription effectuée avec succès", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(this, PrincipalActivity.class));
-        } else {
-            Toast.makeText(this, "Inscription échouée", Toast.LENGTH_LONG).show();
-        }
     }
 
     //Méthodes privées à l'activité Inscription
@@ -167,12 +160,10 @@ public class InscriptionActivity extends AppCompatActivity {
     private Chauffeur createChauffeur() {
         String chauffeur_nom = nom.getText().toString();
         String chauffeur_prenom = prenom.getText().toString();
-        String chauffeur_identifiant = email.getText().toString();
-        String chauffeur_date_naissance = dateNaissance.getText().toString(); //TODO Date ou String
-        String chauffeur_mdp = mdp.getText().toString();
+        String chauffeur_email = email.getText().toString();
+        String chauffeur_date_naissance = dateNaissance.getText().toString();
 
-        Chauffeur chauffeur = new Chauffeur(chauffeur_nom, chauffeur_prenom, chauffeur_identifiant, chauffeur_date_naissance, chauffeur_mdp);
-        return chauffeur;
+        return new Chauffeur(chauffeur_nom, chauffeur_prenom, chauffeur_email, chauffeur_date_naissance);
     }
 
     //Méthode pour comparer les mdp
@@ -183,5 +174,20 @@ public class InscriptionActivity extends AppCompatActivity {
         return mot1.equals(mot2);
     }
 
-    //TODO Méthode pour vérifier que le chauffeur n'est pas déjà enregistré dans la base de données
+    //Méthode pour ajouter les données du chauffeur à la base de données
+    private void createUserData(Chauffeur chauffeur) {
+        String key = refChauffeur.push().getKey();
+        Chauffeur chauffeurInscrit = createChauffeur();
+        refChauffeur.child(key).setValue(chauffeurInscrit);
+    }
+
+    //Méthodes publiques de l'activité Inscription
+    public void updateUI(FirebaseUser user) {
+        if (user != null) {
+            Toast.makeText(this, "Inscription effectuée avec succès", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(this, PrincipalActivity.class));
+        } else {
+            Toast.makeText(this, "Inscription échouée", Toast.LENGTH_LONG).show();
+        }
+    }
 }

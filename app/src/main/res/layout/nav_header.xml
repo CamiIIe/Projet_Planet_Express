@@ -5,14 +5,15 @@
     android:layout_height="200dp"
     android:layout_gravity="start"
     android:background="@color/pink_light_2"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/nav_header_layout">
     
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:src="@mipmap/planet_express_round"
-        android:id="@+id/nav_header_principal"/>
+        android:id="@+id/nav_header_img"/>
 
     <TextView
         android:layout_width="250dp"

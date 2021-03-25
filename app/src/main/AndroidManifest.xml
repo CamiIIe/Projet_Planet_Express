@@ -13,14 +13,13 @@
         android:theme="@style/NoActionBar">
         <activity android:name=".Activities.ParametresActivity" />
         <activity android:name=".Activities.PrincipalActivity">
+        </activity>
+        <activity android:name=".Activities.Planet_Express_Home" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Activities.Planet_Express_Home" >
-
         </activity>
         <activity android:name=".Activities.InscriptionActivity">
 

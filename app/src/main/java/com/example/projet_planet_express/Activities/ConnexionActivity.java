@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.projet_planet_express.Fragments.BienvenueFragment;
 import com.example.projet_planet_express.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -27,6 +28,7 @@ public class ConnexionActivity extends AppCompatActivity {
 
     //Instance Firebase
     private FirebaseAuth authentification;
+    private FirebaseUser user;
 
     //Le bouton
     Button valider;
@@ -48,15 +50,12 @@ public class ConnexionActivity extends AppCompatActivity {
         valider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(ConnexionActivity.this, PrincipalActivity.class);
-                //startActivity(intent);
-
                 authentification.signInWithEmailAndPassword(email.getText().toString(), mdp.getText().toString())
                         .addOnCompleteListener(ConnexionActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    FirebaseUser user = authentification.getCurrentUser();
+                                    user = authentification.getCurrentUser();
                                     updateUI(user);
                                 } else {
                                     updateUI(null);
@@ -79,5 +78,5 @@ public class ConnexionActivity extends AppCompatActivity {
     }
 
     //Méthodes privées à l'activité Connexion
-    //TODO méthode pour vérifier si la DB contient bien l'identifiant et que le mot de passe correspond
+
 }

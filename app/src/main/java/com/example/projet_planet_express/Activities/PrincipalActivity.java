@@ -11,11 +11,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.projet_planet_express.Classes.Chauffeur;
 import com.example.projet_planet_express.Fragments.BienvenueFragment;
 import com.example.projet_planet_express.Fragments.ColisFragment;
 import com.example.projet_planet_express.Fragments.HistoriqueFragment;
@@ -23,9 +24,18 @@ import com.example.projet_planet_express.Fragments.ProfilFragment;
 import com.example.projet_planet_express.Fragments.TrajetFragment;
 import com.example.projet_planet_express.Fragments.VehiculeFragment;
 import com.example.projet_planet_express.R;
+import com.firebase.ui.auth.data.model.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.HashMap;
 
 public class PrincipalActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -49,7 +59,8 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
 
     //Instance Firebase
     private FirebaseAuth authentification;
-    private FirebaseUser firebaseUser;
+    private FirebaseUser user;
+    private FirebaseDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,36 +83,22 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
         navigationView = findViewById(R.id.principal_navigation_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        /* Question posé au prof à ce sujet
-        //Assignation du NavHeader
-        navheader = findViewById(R.id.nav_header_principal);
-        navheader.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                fragmentManager = getSupportFragmentManager();
-                fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.add(R.id.principal_frame_layout, new BienvenueFragment()).commit();
-                drawer.closeDrawer(GravityCompat.START);
-            }
-        });
-        */
-        getSupportFragmentManager().beginTransaction().add(R.id.principal_frame_layout, new BienvenueFragment()).commit();
-
         //Récupération de l'instance Firebase pour l'inscription
         authentification = FirebaseAuth.getInstance();
-        firebaseUser = authentification.getCurrentUser();
+        user = authentification.getCurrentUser();
 
-        /*
-        TextView view = findViewById(R.id.frag_bienvenue_tv_corps);
-        view.setText("Perfect");
-        //view.setText(firebaseUser.getEmail().toString());
 
-        /*
-        if (isCurrentUserLogged()) {
-            TextView view = findViewById(R.id.frag_bienvenue_tv_corps);
-            view.setText("Perfect");
-        }
-        */
+        //TEST LECTUREBASE
+
+
+
+
+            if(user!=null){
+                    String email=user.getDisplayName();
+                    String id=user.getEmail();
+
+            getSupportFragmentManager().beginTransaction().add(R.id.principal_frame_layout, BienvenueFragment.newInstance(email, id)).commit();
+        };
 
     }
 
