@@ -55,7 +55,7 @@
             android:layout_marginLeft="170dp"
             android:layout_marginRight="10dp"
             android:gravity="left"
-            android:text="ROUMIER"
+            android:text=""
             android:textColor="@color/red_dark"
             android:textSize="20dp" />
 
@@ -79,7 +79,7 @@
             android:layout_marginLeft="170dp"
             android:layout_marginRight="10dp"
             android:gravity="left"
-            android:text="Camille"
+            android:text=""
             android:textColor="@color/red_dark"
             android:textSize="20dp" />
 
@@ -103,7 +103,7 @@
             android:layout_marginLeft="170dp"
             android:layout_marginRight="10dp"
             android:gravity="left"
-            android:text="Super conductrice!"
+            android:text=""
             android:textColor="@color/red_dark"
             android:textSize="20dp"/>
 
@@ -127,12 +127,11 @@
             android:layout_marginLeft="170dp"
             android:layout_marginRight="10dp"
             android:gravity="center_vertical"
-            android:text="23/09/1997"
+            android:text=""
             android:textColor="@color/red_dark"
             android:textSize="20dp" />
 
         <TextView
-            android:id="@+id/frag_profil_mdp"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="190dp"
@@ -145,6 +144,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/frag_profil_mdp"
             android:layout_width="230dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="190dp"
@@ -152,7 +152,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:gravity="left"
-            android:text="@string/bienvenue"
+            android:text=""
             android:textColor="@color/red_dark"
             android:textSize="20dp"
             android:inputType="textPassword" />
