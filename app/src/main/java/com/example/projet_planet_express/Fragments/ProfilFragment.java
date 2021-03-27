@@ -7,8 +7,20 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.projet_planet_express.Classes.Chauffeur;
 import com.example.projet_planet_express.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.jetbrains.annotations.NotNull;
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +28,14 @@ import com.example.projet_planet_express.R;
  * create an instance of this fragment.
  */
 public class ProfilFragment extends Fragment {
+
+    //Database
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
+    //Instance Firebase
+    private FirebaseAuth authentification;
+    private FirebaseUser user;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +81,52 @@ public class ProfilFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profil, container, false);
+        View v = inflater.inflate(R.layout.fragment_profil, container, false);
+
+        TextView tvNom = v.findViewById(R.id.frag_profil_nom);
+        TextView tvPrenom = v.findViewById(R.id.frag_profil_prenom);
+        TextView tvEmail = v.findViewById(R.id.frag_profil_id);
+        TextView tvDate = v.findViewById(R.id.frag_profil_date);
+        TextView tvMdp = v.findViewById(R.id.frag_profil_mdp);
+
+        //Récupération de la base de données
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+
+        //Récupération de l'instance Firebase pour l'inscription
+        authentification = FirebaseAuth.getInstance();
+        user = authentification.getCurrentUser();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    for(DataSnapshot dataChauffeur : postSnapshot.getChildren()) {
+                        Chauffeur chauffeur = dataChauffeur.getValue(Chauffeur.class);
+                        assert chauffeur != null;
+                        if (chauffeur.getEmail().equals(user.getEmail())) {
+                            String nom = chauffeur.getNom();
+                            String prenom = chauffeur.getPrenom();
+                            String email = chauffeur.getEmail();
+                            String date = chauffeur.getDate();
+                            String mdp = chauffeur.getMdp();
+
+                            tvNom.setText(nom);
+                            tvPrenom.setText(prenom);
+                            tvEmail.setText(email);
+                            tvDate.setText(date);
+                            tvMdp.setText(mdp);
+                        }
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NotNull DatabaseError databaseError) {
+                // [START_EXCLUDE]
+                System.out.println("The read failed: " + databaseError.getMessage());
+            }
+        });
+
+        return v;
     }
 }

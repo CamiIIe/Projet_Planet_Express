@@ -1,15 +1,32 @@
 package com.example.projet_planet_express.Fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.projet_planet_express.Classes.Chauffeur;
 import com.example.projet_planet_express.R;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -17,6 +34,10 @@ import com.example.projet_planet_express.R;
  * create an instance of this fragment.
  */
 public class BienvenueFragment extends Fragment {
+
+    //Database
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
 
     //TextView
     TextView titre;
@@ -70,11 +91,36 @@ public class BienvenueFragment extends Fragment {
         //String texte = getArguments().getString("message");
         View v = inflater.inflate(R.layout.fragment_bienvenue, container, false);
         TextView tv = v.findViewById(R.id.frag_bienvenue_tv_corps);
-        tv.setText(mParam1);
+//        tv.setText(mParam1);
 
         TextView tv2 = v.findViewById(R.id.frag_bienvenue_tv_corps2);
-        tv2.setText(mParam2);
+//        tv2.setText(mParam2);
 
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    for(DataSnapshot dataChauffeur : postSnapshot.getChildren()) {
+                        Chauffeur chauffeur = dataChauffeur.getValue(Chauffeur.class);
+                        assert chauffeur != null;
+                        if (chauffeur.getEmail().equals(mParam1)) {
+                            String nom = chauffeur.getNom();
+                            String prenom = chauffeur.getPrenom();
+                            tv.setText(nom);
+                            tv2.setText(prenom);
+                        }
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NotNull DatabaseError databaseError) {
+                // [START_EXCLUDE]
+                System.out.println("The read failed: " + databaseError.getMessage());
+            }
+        });
 
         return v;
     }
