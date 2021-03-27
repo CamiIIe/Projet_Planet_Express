@@ -42,11 +42,19 @@
     <string name="aucun_v_hicule_renseign">Aucun véhicule renseigné !</string>
     <string name="adresse_mail">Adresse mail</string>
 
-    <!-- Pour l'identification de Facebook -->
+    <!-- String pour le spinner -->
+    <string-array name="spinner_list">
+        <item>Berlines</item>
+        <item>Break</item>
+        <item>Monospace</item>
+        <item>Citadines</item>
+        <item>Cabriolet</item>
+        <item>Coupé</item>
+        <item>Pick-Up</item>
+        <item>4 x 4</item>
+        <item>Crossover</item>
+    </string-array>
 
-    <!-- ... -->
-    <string name="facebook_application_id" translatable="false">APP_ID</string>
-    <!-- Facebook Application ID, prefixed by 'fb'. Enables Chrome Custom tabs. -->
-    <string name="facebook_login_protocol_scheme" translatable="false">fbAPP_ID</string>
+    <string name="maps_api_key">AIzaSyDeYGka7-Ec9fmkYqv10wjJFtATfVKD5nw</string>
 
 </resources>

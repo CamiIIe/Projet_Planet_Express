@@ -27,10 +27,19 @@
         android:textSize="30dp"
         android:textStyle="bold" />
 
+    <FrameLayout
+        android:id="@+id/frame_vehicule"
+        android:layout_width="350dp"
+        android:layout_height="490dp"
+        android:layout_marginTop="140dp"
+        android:layout_gravity="center_horizontal">
+
+    </FrameLayout>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="100dp"
         android:layout_gravity="center_horizontal">
 
         <TextView

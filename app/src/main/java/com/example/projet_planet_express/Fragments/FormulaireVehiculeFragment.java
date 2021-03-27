@@ -2,12 +2,17 @@ package com.example.projet_planet_express.Fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
+import com.example.projet_planet_express.Activities.PrincipalActivity;
 import com.example.projet_planet_express.R;
 
 /**
@@ -60,7 +65,11 @@ public class FormulaireVehiculeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_formulaire_vehicule, container, false);
+        View view = inflater.inflate(R.layout.fragment_formulaire_vehicule, container, false);
+        Spinner spinner = view.findViewById(R.id.sp_type_vehicule);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.spinner_list, android.R.layout.simple_list_item_single_choice);
+        spinner.setAdapter(adapter);
+
+        return view;
     }
 }
