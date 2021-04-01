@@ -24,17 +24,17 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/maps_api_key" />
 
-        <activity android:name=".Activities.AjoutTrajetActivity">
+        <activity android:name=".Activities.AfficheItineraireActivity">
+
+        </activity>
+
+        <activity android:name=".Activities.ParametresActivity" />
+        <activity android:name=".Activities.PrincipalActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <activity android:name=".Activities.ParametresActivity" />
-        <activity android:name=".Activities.PrincipalActivity">
-
         </activity>
         <activity android:name=".Activities.Planet_Express_Home" />
         <activity android:name=".Activities.InscriptionActivity" >

@@ -6,23 +6,19 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.format.Time;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
-import com.android.volley.toolbox.HttpResponse;
 import com.example.projet_planet_express.Classes.Trajet;
 import com.example.projet_planet_express.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -35,22 +31,14 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.net.PlacesClient;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
 
-public class AjoutTrajetActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class AfficheItineraireActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     //Les assignations des propriétés au layout et les méthodes OnClick sont à la suite comme dans l'ordre de déclaration des propriétés
     //Les méthodes OnClick sont placés juste en dessous des assignations des layouts aux propriétés
@@ -84,7 +72,7 @@ public class AjoutTrajetActivity extends AppCompatActivity implements OnMapReady
 
     //Propriétés statiques de l'activité
     private static final int PERMISSION_REQUEST_ACCES_FINE_LOCATION = 1;
-    private static final String TAG = AjoutTrajetActivity.class.getSimpleName();
+    private static final String TAG = AfficheItineraireActivity.class.getSimpleName();
     private static final int DEFAULT_ZOOM = 10;
 
     //Définition de la location par défaut à Tours
@@ -105,6 +93,7 @@ public class AjoutTrajetActivity extends AppCompatActivity implements OnMapReady
         depart = findViewById(R.id.et_depart_ajout_trajet);
         arrivee = findViewById(R.id.et_arrivee_ajout_trajet);
 
+        /*
         //Assignation et gestion des EditText pour saisir l'heure du trajet
         heure_depart = findViewById(R.id.ed_heure_d);
         heure_depart.setOnClickListener(new View.OnClickListener() {
@@ -121,6 +110,7 @@ public class AjoutTrajetActivity extends AppCompatActivity implements OnMapReady
                 selectTimeArrivee();
             }
         });
+        */
 
         //Sauvegarde de la maps en cas de "pause" de l'application
         if (savedInstanceState != null) {
@@ -143,7 +133,7 @@ public class AjoutTrajetActivity extends AppCompatActivity implements OnMapReady
         annuler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AjoutTrajetActivity.this, PrincipalActivity.class);
+                Intent intent = new Intent(AfficheItineraireActivity.this, PrincipalActivity.class);
                 startActivity(intent);
             }
         });
@@ -161,25 +151,27 @@ public class AjoutTrajetActivity extends AppCompatActivity implements OnMapReady
                 String time_d = heure_depart.getText().toString();
                 String time_a = heure_arrivee.getText().toString();
 
-                geocoder = new Geocoder(AjoutTrajetActivity.this, Locale.FRANCE);
+                //geocoder = new Geocoder(AfficheItineraireActivity.this, Locale.FRANCE);
                 try {
-                    HashMap<String, List<Address>> coordonnées_trajets = new HashMap<>();
+                    //HashMap<String, List<Address>> coordonnées_trajets = new HashMap<>();
 
+                    //List<Address> addresse_depart = geocoder.getFromLocationName(pos_depart, 1);
+                    //List<Address> addresse_arrivee = geocoder.getFromLocationName(pos_arrivee, 1);
 
-                    List<Address> addresse_depart = geocoder.getFromLocationName(pos_depart, 1);
-                    List<Address> addresse_arrivee = geocoder.getFromLocationName(pos_arrivee, 1);
-
-                    String url = "https://www.google.com/maps/dir/?api=1&origin="
+                    /*String url = "https://www.google.com/maps/dir/?api=1&origin="
                             + addresse_depart.get(0).getLatitude() + "," + addresse_depart.get(0).getLongitude() + "&destination="
                             + addresse_arrivee.get(0).getLatitude() + "," + addresse_arrivee.get(0).getLongitude() + "&travelmode=driving";
+                    */
 
+                    Uri url = Uri.parse("https://www.google.com/maps/dir/?api=1&origin="+pos_depart+"&destination="+pos_arrivee+"&travelmode=driving");
                     //Création de l'intent qui permet de renvoyer vers Maps pour afficher l'itinéraire de la course
-                    Uri gmmIntentUri = Uri.parse(url);
+                    //Uri gmmIntentUri = Uri.parse(url);
+                    Uri gmmIntentUri = url;
                     Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                     mapIntent.setPackage("com.google.android.apps.maps");
                     startActivity(mapIntent);
 
-                } catch (IOException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
