@@ -9,9 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.projet_planet_express.Activities.AjoutTrajetActivity;
-import com.example.projet_planet_express.Activities.InscriptionActivity;
-import com.example.projet_planet_express.Activities.Planet_Express_Home;
+import com.example.projet_planet_express.Activities.AfficheItineraireActivity;
 import com.example.projet_planet_express.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -70,7 +68,7 @@ public class TrajetFragment extends Fragment {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), AjoutTrajetActivity.class);
+                Intent intent = new Intent(getContext(), AfficheItineraireActivity.class);
                 startActivity(intent);
             }
         });

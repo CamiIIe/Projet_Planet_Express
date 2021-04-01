@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/pink_light_2"
     android:orientation="horizontal"
-    tools:context=".Activities.AjoutTrajetActivity">
+    tools:context=".Activities.AfficheItineraireActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,23 +22,24 @@
 
         <TextView
             android:id="@+id/frag_profil_titre"
-            android:layout_width="250dp"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="50dp"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="40dp"
             android:fontFamily="casual"
             android:gravity="center"
-            android:text="Ajouter un trajet"
+            android:text="Afficher l'itinéraire"
             android:textColor="@color/red_dark"
             android:textSize="30dp"
             android:textStyle="bold" />
 
         <LinearLayout
-            android:layout_width="240dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="110dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="60dp"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <EditText
@@ -61,6 +62,7 @@
 
         </LinearLayout>
 
+        <!--
         <LinearLayout
             android:layout_width="120dp"
             android:layout_height="wrap_content"
@@ -84,6 +86,7 @@
                 android:layout_marginTop="10dp"
                 android:hint="Heure"/>
         </LinearLayout>
+        -->
 
         <fragment
             xmlns:android="http://schemas.android.com/apk/res/android"
