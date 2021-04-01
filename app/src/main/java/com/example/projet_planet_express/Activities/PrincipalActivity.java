@@ -11,9 +11,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.projet_planet_express.Classes.Chauffeur;
@@ -24,9 +24,6 @@ import com.example.projet_planet_express.Fragments.ProfilFragment;
 import com.example.projet_planet_express.Fragments.TrajetFragment;
 import com.example.projet_planet_express.Fragments.VehiculeFragment;
 import com.example.projet_planet_express.R;
-import com.firebase.ui.auth.data.model.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -37,7 +34,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
+import org.jetbrains.annotations.NotNull;
 
 public class PrincipalActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -58,6 +55,9 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
     //Fragments
     FragmentManager fragmentManager;
     FragmentTransaction fragmentTransaction;
+
+    Chauffeur chauffeurUser;
+    String nomChauffeur;
 
     //Instance Firebase
     private FirebaseAuth authentification;
@@ -88,14 +88,12 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
         authentification = FirebaseAuth.getInstance();
         user = authentification.getCurrentUser();
 
-
         if (user != null) {
             String email = user.getDisplayName();
             String id = user.getEmail();
 
             getSupportFragmentManager().beginTransaction().add(R.id.principal_frame_layout, BienvenueFragment.newInstance(email, id)).commit();
-        }
-        ;
+        };
 
     }
 

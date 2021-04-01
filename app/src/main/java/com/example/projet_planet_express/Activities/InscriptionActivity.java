@@ -161,9 +161,10 @@ public class InscriptionActivity extends AppCompatActivity {
         String chauffeur_nom = nom.getText().toString();
         String chauffeur_prenom = prenom.getText().toString();
         String chauffeur_email = email.getText().toString();
+        String chauffeur_mdp = mdp.getText().toString();
         String chauffeur_date_naissance = dateNaissance.getText().toString();
 
-        return new Chauffeur(chauffeur_nom, chauffeur_prenom, chauffeur_email, chauffeur_date_naissance);
+        return new Chauffeur(chauffeur_nom, chauffeur_prenom, chauffeur_email, chauffeur_date_naissance, chauffeur_mdp);
     }
 
     //Méthode pour comparer les mdp
