@@ -3,6 +3,7 @@
     <string name="pas_de_compte_inscris_toi"><u>Pas de compte ? Inscris-toi !</u></string>
     <string name="valider">Valider</string>
     <string name="annuler">Annuler</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -12,7 +13,24 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- String pour la gestion l'API Maps -->
+    <string name="maps_api_key">AIzaSyDeYGka7-Ec9fmkYqv10wjJFtATfVKD5nw</string>
+
+    <!-- String pour le spinner -->
+    <string-array name="spinner_list">
+        <item>Berlines</item>
+        <item>Break</item>
+        <item>Monospace</item>
+        <item>Citadines</item>
+        <item>Cabriolet</item>
+        <item>Coupé</item>
+        <item>Pick-Up</item>
+        <item>4 x 4</item>
+        <item>Crossover</item>
+    </string-array>
+
+    <!-- String personnalisés pour le projet Planet Express -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="inscription">Inscription</string>
     <string name="informations_personnelles">Informations personnelles</string>
@@ -41,12 +59,7 @@
     <string name="tous">Tous</string>
     <string name="aucun_v_hicule_renseign">Aucun véhicule renseigné !</string>
     <string name="adresse_mail">Adresse mail</string>
-
-    <!-- Pour l'identification de Facebook -->
-
-    <!-- ... -->
-    <string name="facebook_application_id" translatable="false">APP_ID</string>
-    <!-- Facebook Application ID, prefixed by 'fb'. Enables Chrome Custom tabs. -->
-    <string name="facebook_login_protocol_scheme" translatable="false">fbAPP_ID</string>
+    <string name="d_part">Départ</string>
+    <string name="arriv_e">Arrivée</string>
 
 </resources>

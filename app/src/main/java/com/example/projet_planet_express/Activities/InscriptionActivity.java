@@ -178,6 +178,7 @@ public class InscriptionActivity extends AppCompatActivity {
     //Méthode pour ajouter les données du chauffeur à la base de données
     private void createUserData(Chauffeur chauffeur) {
         String key = refChauffeur.push().getKey();
+        refChauffeur.push();
         Chauffeur chauffeurInscrit = createChauffeur();
         refChauffeur.child(key).setValue(chauffeurInscrit);
     }

@@ -12,6 +12,9 @@ public class Chauffeur implements Parcelable {
     private String date;
     private String mdp;
 
+    //TODO Liste de trajets ?
+    //List<Trajet> trajets;
+
     //Constructeurs
     public Chauffeur() {
         //id++;

@@ -31,6 +31,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
@@ -61,7 +62,6 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
     //Instance Firebase
     private FirebaseAuth authentification;
     private FirebaseUser user;
-    private FirebaseDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,14 +88,11 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
         authentification = FirebaseAuth.getInstance();
         user = authentification.getCurrentUser();
 
+        if (user != null) {
+            String email = user.getDisplayName();
+            String id = user.getEmail();
 
-
-        //TEST LECTUREBASE
-        if(user!=null){
-                String userEmail = user.getEmail();
-                String nom = user.getDisplayName();
-
-        getSupportFragmentManager().beginTransaction().add(R.id.principal_frame_layout, BienvenueFragment.newInstance(userEmail, nom)).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.principal_frame_layout, BienvenueFragment.newInstance(email, id)).commit();
         };
 
     }
@@ -162,5 +159,8 @@ public class PrincipalActivity extends AppCompatActivity implements NavigationVi
     private boolean isCurrentUserLogged() {
         return (authentification.getCurrentUser() != null);
     }
+
+    //Méthode pour lire la base de données
+
 
 }

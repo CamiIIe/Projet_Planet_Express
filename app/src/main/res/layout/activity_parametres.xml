@@ -17,11 +17,13 @@
         android:theme="@style/ToolbarColoredIcons"
         app:popupTheme="@style/Theme.Projet_Planet_Express">
 
-        <ImageView
+        <ImageButton
+            android:id="@+id/parametre_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_arrow_back"
-            app:tint="@color/pink_light_2" />
+            android:background="@color/red_dark"
+            app:tint="@color/pink_light_2"/>
 
         <TextView
             android:id="@+id/tv_titre"
@@ -34,11 +36,12 @@
             android:textSize="20sp"
             android:layout_marginStart="25dp" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="200dp"
             android:src="@drawable/ic_vertical_point"
+            android:background="@color/red_dark"
             app:tint="@color/pink_light_2"
             android:layout_marginStart="214dp" />
 
