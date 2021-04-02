@@ -43,6 +43,7 @@ public class FormulaireAjoutColisFragment extends Fragment {
     EditText prenom_dest;
     EditText poids;
     EditText date;
+    EditText adresse_colis;
     Button btn_annuler;
     Button btn_valider;
 
@@ -100,6 +101,7 @@ public class FormulaireAjoutColisFragment extends Fragment {
         nom_dest = view.findViewById(R.id.et_nom_destinataire_colis);
         prenom_dest = view.findViewById(R.id.et_prenom_destinataire_colis);
         poids = view.findViewById(R.id.et_poids_ajout_colis);
+        adresse_colis = view.findViewById(R.id.et_adresse_colis);
         date = view.findViewById(R.id.et_date_colis);
         date.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,10 +142,11 @@ public class FormulaireAjoutColisFragment extends Fragment {
 
         //String pds = poids.getText().toString();
         double poids_colis = Double.parseDouble(poids.getText().toString());
+        String adresse = adresse_colis.getText().toString();
         String date_colis = date.getText().toString();
 
         String user_email = authentification.getCurrentUser().getEmail();
-        Colis colis = new Colis(nom, prenom, poids_colis, date_colis, user_email);
+        Colis colis = new Colis(nom, prenom, poids_colis, date_colis, adresse, user_email);
         return colis;
     }
 

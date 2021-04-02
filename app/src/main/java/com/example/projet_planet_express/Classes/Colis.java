@@ -20,11 +20,12 @@ public class Colis {
 
     }
 
-    public Colis(String nom_destinataire, String prenom_destinataire, double poids, String date_reception, String mail) {
+    public Colis(String nom_destinataire, String prenom_destinataire, double poids, String date_reception, String addresse, String mail) {
         this.nom_destinataire = nom_destinataire;
         this.prenom_destinataire = prenom_destinataire;
         this.poids = poids;
         this.date_reception = date_reception;
+        this.addresse_livraison = addresse;
         this.email = mail;
     }
 
@@ -104,6 +105,6 @@ public class Colis {
     //Autres méthodes
     //Méthode qui retourne le titre du trajet
     public String getTitle() {
-        return "Colis : "+getPrenom_destinataire().toUpperCase() + " -- " + getNom_destinataire().toUpperCase();
+        return "Colis : "+getPrenom_destinataire().toUpperCase() + " " + getNom_destinataire().toUpperCase();
     }
 }
