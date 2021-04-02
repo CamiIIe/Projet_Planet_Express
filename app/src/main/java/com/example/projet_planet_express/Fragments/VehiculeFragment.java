@@ -9,9 +9,22 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.projet_planet_express.Classes.Chauffeur;
+import com.example.projet_planet_express.Classes.Voiture;
 import com.example.projet_planet_express.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,6 +32,14 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
  * create an instance of this fragment.
  */
 public class VehiculeFragment extends Fragment {
+
+    //Database
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+
+    //Instance Firebase
+    private FirebaseAuth authentification;
+    private FirebaseUser user;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -70,9 +91,62 @@ public class VehiculeFragment extends Fragment {
             public void onClick(View v) {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.add(R.id.frame_vehicule, new FormulaireVehiculeFragment()).commit();
+                fragmentTransaction.add(R.id.principal_frame_layout, new FormulaireVehiculeFragment()).commit();
             }
         });
+
+        TextView tvImma = view.findViewById(R.id.frag_vehicule_imma);
+        TextView tvMarque = view.findViewById(R.id.frag_vehicule_marque);
+        TextView tvModele = view.findViewById(R.id.frag_vehicule_model);
+        TextView tvType = view.findViewById(R.id.frag_vehicule_type);
+        TextView tvCouleur = view.findViewById(R.id.frag_vehicule_couleur);
+        TextView tvAnnee = view.findViewById(R.id.frag_vehicule_annee);
+//        TextView tvAucun = view.findViewById(R.id.aucun_vehicule);
+
+        //Récupération de la base de données
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference();
+
+        //Récupération de l'instance Firebase pour l'inscription
+        authentification = FirebaseAuth.getInstance();
+        user = authentification.getCurrentUser();
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    if(postSnapshot.getKey().equals("voiture")){
+                        for(DataSnapshot dataVoiture : postSnapshot.getChildren()) {
+                            Voiture voiture = dataVoiture.getValue(Voiture.class);
+                            if(voiture != null) {
+                                if (voiture.getEmail_user().equals(user.getEmail())) {
+                                    String immatriculation = voiture.getImmatriculation();
+                                    String marque = voiture.getMarque();
+                                    String modele = voiture.getModele();
+                                    String type = voiture.getType();
+                                    String couleur = voiture.getCouleur();
+                                    String annee = String.valueOf(voiture.getAnnee());
+
+                                    tvImma.setText(immatriculation);
+                                    tvMarque.setText(marque);
+                                    tvModele.setText(modele);
+                                    tvType.setText(type);
+                                    tvCouleur.setText(couleur);
+                                    tvAnnee.setText(annee);
+                                    //tvAucun.setText("");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NotNull DatabaseError databaseError) {
+                // [START_EXCLUDE]
+                System.out.println("The read failed: " + databaseError.getMessage());
+            }
+        });
+
         return view;
     }
 }
