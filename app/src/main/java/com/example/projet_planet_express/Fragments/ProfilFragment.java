@@ -3,6 +3,8 @@ package com.example.projet_planet_express.Fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.projet_planet_express.Classes.Chauffeur;
 import com.example.projet_planet_express.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -82,6 +85,15 @@ public class ProfilFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_profil, container, false);
+        FloatingActionButton btn = v.findViewById(R.id.frag_profil_btn_float);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.add(R.id.principal_frame_layout, new FormulaireProfilFragment()).commit();
+            }
+        });
 
         TextView tvNom = v.findViewById(R.id.frag_profil_nom);
         TextView tvPrenom = v.findViewById(R.id.frag_profil_prenom);
@@ -101,23 +113,28 @@ public class ProfilFragment extends Fragment {
             @Override
             public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    for(DataSnapshot dataChauffeur : postSnapshot.getChildren()) {
-                        Chauffeur chauffeur = dataChauffeur.getValue(Chauffeur.class);
-                        assert chauffeur != null;
-                        if (chauffeur.getEmail().equals(user.getEmail())) {
-                            String nom = chauffeur.getNom();
-                            String prenom = chauffeur.getPrenom();
-                            String email = chauffeur.getEmail();
-                            String date = chauffeur.getDate();
-                            String mdp = chauffeur.getMdp();
+                    //System.out.println(postSnapshot.toString());
+                    if(postSnapshot.getKey().equals("chauffeur")) {
+                        for(DataSnapshot dataChauffeur : postSnapshot.getChildren()) {
+                            //System.out.println("test");
+                            Chauffeur chauffeur = dataChauffeur.getValue(Chauffeur.class);
+                            assert chauffeur != null;
+                            if (chauffeur.getEmail().equals(user.getEmail())) {
+                                String nom = chauffeur.getNom();
+                                String prenom = chauffeur.getPrenom();
+                                String email = chauffeur.getEmail();
+                                String date = chauffeur.getDate();
+                                String mdp = chauffeur.getMdp();
 
-                            tvNom.setText(nom);
-                            tvPrenom.setText(prenom);
-                            tvEmail.setText(email);
-                            tvDate.setText(date);
-                            tvMdp.setText(mdp);
+                                tvNom.setText(nom);
+                                tvPrenom.setText(prenom);
+                                tvEmail.setText(email);
+                                tvDate.setText(date);
+                                tvMdp.setText(mdp);
+                            }
                         }
                     }
+
                 }
             }
             @Override

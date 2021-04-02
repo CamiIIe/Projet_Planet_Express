@@ -30,18 +30,17 @@
 
         <activity android:name=".Activities.ParametresActivity" />
         <activity android:name=".Activities.PrincipalActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Activities.Planet_Express_Home" />
         <activity android:name=".Activities.InscriptionActivity" >
 
         </activity>
         <activity android:name=".Activities.ConnexionActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

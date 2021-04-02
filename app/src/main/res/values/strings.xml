@@ -19,10 +19,10 @@
 
     <!-- String pour le spinner -->
     <string-array name="spinner_list">
-        <item>Berlines</item>
+        <item>Berline</item>
         <item>Break</item>
         <item>Monospace</item>
-        <item>Citadines</item>
+        <item>Citadine</item>
         <item>Cabriolet</item>
         <item>Coupé</item>
         <item>Pick-Up</item>

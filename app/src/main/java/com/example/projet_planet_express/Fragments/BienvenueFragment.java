@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.projet_planet_express.Classes.Chauffeur;
 import com.example.projet_planet_express.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,6 +40,7 @@ public class BienvenueFragment extends Fragment {
     //Database
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    FirebaseAuth authentification;
 
     //TextView
     TextView titre;
@@ -96,6 +99,9 @@ public class BienvenueFragment extends Fragment {
         TextView tv2 = v.findViewById(R.id.frag_bienvenue_tv_corps2);
 //        tv2.setText(mParam2);
 
+        authentification = FirebaseAuth.getInstance();
+        FirebaseUser user = authentification.getCurrentUser();
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
 
@@ -103,16 +109,19 @@ public class BienvenueFragment extends Fragment {
             @Override
             public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    for(DataSnapshot dataChauffeur : postSnapshot.getChildren()) {
-                        Chauffeur chauffeur = dataChauffeur.getValue(Chauffeur.class);
-                        assert chauffeur != null;
-                        if (chauffeur.getEmail().equals(mParam1)) {
-                            String nom = chauffeur.getNom();
-                            String prenom = chauffeur.getPrenom();
-                            tv.setText(nom);
-                            tv2.setText(prenom);
+                    if(postSnapshot.getKey().equals("chauffeur")){
+                        for(DataSnapshot dataChauffeur : postSnapshot.getChildren()) {
+                            Chauffeur chauffeur = dataChauffeur.getValue(Chauffeur.class);
+                            assert chauffeur != null;
+                            if (chauffeur.getEmail().equals(user.getEmail())) {
+                                String nom = chauffeur.getNom();
+                                String prenom = chauffeur.getPrenom();
+                                tv.setText(nom);
+                                tv2.setText(prenom);
+                            }
                         }
                     }
+
                 }
             }
             @Override
