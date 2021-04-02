@@ -8,6 +8,7 @@ public class Voiture {
     private String type;
     private String couleur;
     private int annee;
+    private String email_user;
 
     /*
         propositions de voiture pour app
@@ -19,13 +20,15 @@ public class Voiture {
 
     }
 
-    public Voiture(String immatriculation, String marque, String modele, String type, String couleur, int annee) {
+    public Voiture(String immatriculation, String marque, String modele, String type, String couleur, int annee,
+                   String email_user) {
         this.immatriculation = immatriculation;
         this.marque = marque;
         this.modele = modele;
         this.type = type;
         this.couleur = couleur;
         this.annee = annee;
+        this.email_user = email_user;
     }
 
     //Getters et Setters
@@ -75,5 +78,14 @@ public class Voiture {
 
     public void setAnnee(int annee) {
         this.annee = annee;
+    }
+
+
+    public String getEmail_user() {
+        return email_user;
+    }
+
+    public void setEmail_user(String email_user) {
+        this.email_user = email_user;
     }
 }

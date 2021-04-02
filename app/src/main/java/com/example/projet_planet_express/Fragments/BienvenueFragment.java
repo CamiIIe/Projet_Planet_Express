@@ -40,6 +40,7 @@ public class BienvenueFragment extends Fragment {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     FirebaseAuth authentification;
+
     //TextView
     TextView titre;
     // TODO: Rename parameter arguments, choose names that match
@@ -88,8 +89,10 @@ public class BienvenueFragment extends Fragment {
 //        tv.setText(mParam1);
         TextView tv2 = v.findViewById(R.id.frag_bienvenue_tv_corps2);
 //        tv2.setText(mParam2);
+
         authentification = FirebaseAuth.getInstance();
         FirebaseUser user = authentification.getCurrentUser();
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -108,6 +111,7 @@ public class BienvenueFragment extends Fragment {
                             }
                         }
                     }
+
                 }
             }
             @Override

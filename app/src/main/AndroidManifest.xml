@@ -28,7 +28,6 @@
 
         </activity>
         <activity android:name=".Activities.Planet_Express_Home">
-
         </activity>
         <activity android:name=".Activities.InscriptionActivity"></activity>
         <activity android:name=".Activities.ConnexionActivity">
