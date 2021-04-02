@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/pink_light_2"
+    android:background="?attr/colorOnBackground"
     tools:context=".Activities.AjoutTrajetActivity">
 
     <RelativeLayout
@@ -18,7 +18,7 @@
             android:layout_marginLeft="55dp"
             android:layout_marginTop="59dp"
             android:src="@drawable/ic_trajets"
-            app:tint="@color/red_dark" />
+            app:tint="?attr/colorPrimary" />
 
         <TextView
             android:id="@+id/frag_profil_titre"
@@ -30,7 +30,7 @@
             android:fontFamily="casual"
             android:gravity="center"
             android:text="Ajouter un trajet"
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textSize="30dp"
             android:textStyle="bold" />
 
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
-        android:background="@color/pink_light"
+        android:background="?attr/colorOnPrimary"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
@@ -52,7 +52,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:text="Informations du trajet"
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textSize="20sp"
             android:textStyle="bold" />
 

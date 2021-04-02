@@ -1,5 +1,6 @@
 package com.example.projet_planet_express.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.projet_planet_express.Activities.PrincipalActivity;
 import com.example.projet_planet_express.Classes.Chauffeur;
 import com.example.projet_planet_express.Classes.Voiture;
 import com.example.projet_planet_express.R;
@@ -108,6 +110,16 @@ public class FormulaireProfilFragment extends Fragment {
         mdp = view.findViewById(R.id.et_passwordM);
 
         remplissageEditText();
+
+        Button btn_annuler_profil = view.findViewById(R.id.btn_annulerM);
+        btn_annuler_profil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(view.getContext(), "Mise à jour du profil annulée", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getContext(), PrincipalActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btn_valider_profil = view.findViewById(R.id.btn_validerM);
         btn_valider_profil.setOnClickListener(new View.OnClickListener() {

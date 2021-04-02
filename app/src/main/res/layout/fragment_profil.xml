@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink_light_2"
+    android:background="?attr/colorOnBackground"
     tools:context=".Fragments.ProfilFragment">
 
     <ImageView
@@ -13,7 +13,7 @@
         android:layout_marginTop="59dp"
         android:layout_marginLeft="98dp"
         android:src="@drawable/ic_profil"
-        app:tint="@color/red_dark" />
+        app:tint="?attr/colorPrimary" />
 
     <TextView
         android:id="@+id/frag_profil_titre"
@@ -24,7 +24,7 @@
         android:fontFamily="casual"
         android:gravity="center"
         android:text="@string/mon_profil"
-        android:textColor="@color/red_dark"
+        android:textColor="?attr/colorPrimary"
         android:textSize="30dp"
         android:textStyle="bold" />
 
@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="140dp"
         android:layout_gravity="center_horizontal"
-        android:background="@color/pink_light">
+        android:background="?attr/colorOnPrimary">
 
         <TextView
             android:layout_width="150dp"
@@ -43,7 +43,7 @@
             android:layout_marginRight="20dp"
             android:gravity="left"
             android:text="@string/nom"
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -56,7 +56,7 @@
             android:layout_marginRight="10dp"
             android:gravity="left"
             android:text=""
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textSize="20dp" />
 
         <TextView
@@ -67,7 +67,7 @@
             android:layout_marginRight="10dp"
             android:gravity="left"
             android:text="@string/pr_nom"
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -80,7 +80,7 @@
             android:layout_marginRight="10dp"
             android:gravity="left"
             android:text=""
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textSize="20dp" />
 
         <TextView
@@ -91,7 +91,7 @@
             android:layout_marginRight="10dp"
             android:gravity="left"
             android:text="@string/adresse_mail"
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -104,7 +104,7 @@
             android:layout_marginRight="10dp"
             android:gravity="left"
             android:text=""
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textSize="20dp"/>
 
         <TextView
@@ -115,7 +115,7 @@
             android:layout_marginRight="10dp"
             android:gravity="left"
             android:text="@string/date_de_naissance"
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -128,7 +128,7 @@
             android:layout_marginRight="10dp"
             android:gravity="center_vertical"
             android:text=""
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textSize="20dp" />
 
         <TextView
@@ -139,7 +139,7 @@
             android:layout_marginRight="20dp"
             android:gravity="left"
             android:text="@string/mot_de_passe"
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -153,7 +153,7 @@
             android:layout_marginBottom="10dp"
             android:gravity="left"
             android:text=""
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textSize="20dp"
             android:inputType="textPassword" />
 
