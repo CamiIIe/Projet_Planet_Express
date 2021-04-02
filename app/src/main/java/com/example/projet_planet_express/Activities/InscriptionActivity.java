@@ -136,17 +136,17 @@ public class InscriptionActivity extends AppCompatActivity {
     //Méthode pour sélectionner la date avec un spinner de date
     private void selectDate() {
         final Calendar calendar = Calendar.getInstance();
+        int years = calendar.get(Calendar.YEAR);
+        int months = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
-        int month = calendar.get(Calendar.MONTH);
-        int year = calendar.get(Calendar.YEAR);
 
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                dateNaissance.setText(day + "/" + (month+1) + "/" + year);
+                dateNaissance.setText(day + "/" + (months+1) + "/" + years);
 
-                lastSelectedYear = year;
-                lastSelectedMonth = month;
+                lastSelectedYear = years;
+                lastSelectedMonth = months;
                 lastSelectedDay = day;
             }
         };

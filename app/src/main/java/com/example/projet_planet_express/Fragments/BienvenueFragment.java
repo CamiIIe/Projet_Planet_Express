@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.example.projet_planet_express.Classes.Chauffeur;
 import com.example.projet_planet_express.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,28 +36,23 @@ import java.util.Objects;
  * create an instance of this fragment.
  */
 public class BienvenueFragment extends Fragment {
-
     //Database
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-
+    FirebaseAuth authentification;
     //TextView
     TextView titre;
-
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    String param1; 
-
+    String param1;
     public BienvenueFragment() {
         // Required empty public constructor
     }
-
     /*
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -73,18 +70,15 @@ public class BienvenueFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-
             //param1 = getActivity().getIntent().getExtras().getString(ARG_PARAM1);
         }
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -92,25 +86,26 @@ public class BienvenueFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_bienvenue, container, false);
         TextView tv = v.findViewById(R.id.frag_bienvenue_tv_corps);
 //        tv.setText(mParam1);
-
         TextView tv2 = v.findViewById(R.id.frag_bienvenue_tv_corps2);
 //        tv2.setText(mParam2);
-
+        authentification = FirebaseAuth.getInstance();
+        FirebaseUser user = authentification.getCurrentUser();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
-
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    for(DataSnapshot dataChauffeur : postSnapshot.getChildren()) {
-                        Chauffeur chauffeur = dataChauffeur.getValue(Chauffeur.class);
-                        assert chauffeur != null;
-                        if (chauffeur.getEmail().equals(mParam1)) {
-                            String nom = chauffeur.getNom();
-                            String prenom = chauffeur.getPrenom();
-                            tv.setText(nom);
-                            tv2.setText(prenom);
+                    if(postSnapshot.getKey().equals("chauffeur")){
+                        for(DataSnapshot dataChauffeur : postSnapshot.getChildren()) {
+                            Chauffeur chauffeur = dataChauffeur.getValue(Chauffeur.class);
+                            assert chauffeur != null;
+                            if (chauffeur.getEmail().equals(user.getEmail())) {
+                                String nom = chauffeur.getNom();
+                                String prenom = chauffeur.getPrenom();
+                                tv.setText(nom);
+                                tv2.setText(prenom);
+                            }
                         }
                     }
                 }
@@ -121,8 +116,6 @@ public class BienvenueFragment extends Fragment {
                 System.out.println("The read failed: " + databaseError.getMessage());
             }
         });
-
         return v;
     }
-
 }

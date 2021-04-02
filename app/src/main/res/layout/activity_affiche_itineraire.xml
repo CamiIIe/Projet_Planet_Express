@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pink_light_2"
+    android:orientation="horizontal"
+    tools:context=".Activities.AfficheItineraireActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="59dp"
+            android:src="@drawable/ic_trajets"
+            app:tint="@color/red_dark" />
+
+        <TextView
+            android:id="@+id/frag_profil_titre"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="40dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="Afficher l'itinéraire"
+            android:textColor="@color/red_dark"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="202dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="110dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/et_depart_affiche_trajet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:hint="@string/d_part" />
+
+            <EditText
+                android:id="@+id/et_arrivee_affiche_trajet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:hint="@string/arriv_e" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="110dp"
+            android:layout_marginLeft="260dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/ed_heure_d"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:hint="Heure"/>
+            <!--
+            <EditText
+                android:id="@+id/ed_heure_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:hint="Heure"/> -->
+        </LinearLayout>
+
+        <fragment
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/frame_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="350dp"
+            android:layout_height="400dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="240dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp">
+        </fragment>
+
+        <Button
+            android:id="@+id/btn_annuler_affiche_trajet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="660dp"
+            android:layout_marginStart="100dp"
+            android:text="@string/annuler"
+            android:layout_marginLeft="150dp" />
+
+        <Button
+            android:id="@+id/btn_valider_affiche_trajet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="660dp"
+            android:layout_marginStart="220dp"
+            android:text="@string/valider"
+            android:layout_marginLeft="150dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

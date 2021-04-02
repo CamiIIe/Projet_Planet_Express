@@ -101,21 +101,24 @@ public class ProfilFragment extends Fragment {
             @Override
             public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    for(DataSnapshot dataChauffeur : postSnapshot.getChildren()) {
-                        Chauffeur chauffeur = dataChauffeur.getValue(Chauffeur.class);
-                        assert chauffeur != null;
-                        if (chauffeur.getEmail().equals(user.getEmail())) {
-                            String nom = chauffeur.getNom();
-                            String prenom = chauffeur.getPrenom();
-                            String email = chauffeur.getEmail();
-                            String date = chauffeur.getDate();
-                            String mdp = chauffeur.getMdp();
-
-                            tvNom.setText(nom);
-                            tvPrenom.setText(prenom);
-                            tvEmail.setText(email);
-                            tvDate.setText(date);
-                            tvMdp.setText(mdp);
+                    //System.out.println(postSnapshot.toString());
+                    if(postSnapshot.getKey().equals("chauffeur")) {
+                        for(DataSnapshot dataChauffeur : postSnapshot.getChildren()) {
+                            //System.out.println("test");
+                            Chauffeur chauffeur = dataChauffeur.getValue(Chauffeur.class);
+                            assert chauffeur != null;
+                            if (chauffeur.getEmail().equals(user.getEmail())) {
+                                String nom = chauffeur.getNom();
+                                String prenom = chauffeur.getPrenom();
+                                String email = chauffeur.getEmail();
+                                String date = chauffeur.getDate();
+                                String mdp = chauffeur.getMdp();
+                                tvNom.setText(nom);
+                                tvPrenom.setText(prenom);
+                                tvEmail.setText(email);
+                                tvDate.setText(date);
+                                tvMdp.setText(mdp);
+                            }
                         }
                     }
                 }
