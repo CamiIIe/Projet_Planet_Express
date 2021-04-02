@@ -4,35 +4,37 @@ import java.util.Date;
 
 public class Colis {
 
-    private static int numero = 0;
+    private int numero;
     private String nom_destinataire;
     private String prenom_destinataire;
     private double poids;
     private String statut;
-    private Date date_reception;    //TODO Date ou string
-    private Date date_livraison;    //TODO Date ou string
+    private String date_reception;
+    private String date_livraison;
+    private String addresse_livraison;
+
+    private String email;
 
     //Constructeurs
     public Colis() {
 
     }
 
-    public Colis(String nom_destinataire, String prenom_destinataire, double poids, String statut, Date date_reception, Date date_livraison) {
+    public Colis(String nom_destinataire, String prenom_destinataire, double poids, String date_reception, String mail) {
         this.nom_destinataire = nom_destinataire;
         this.prenom_destinataire = prenom_destinataire;
         this.poids = poids;
-        this.statut = statut;
         this.date_reception = date_reception;
-        this.date_livraison = date_livraison;
+        this.email = mail;
     }
 
     //Getters et Setters
-    public static int getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public static void setNumero(int numero) {
-        Colis.numero = numero;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public String getNom_destinataire() {
@@ -67,19 +69,41 @@ public class Colis {
         this.statut = statut;
     }
 
-    public Date getDate_reception() {
+    public String getDate_reception() {
         return date_reception;
     }
 
-    public void setDate_reception(Date date_reception) {
+    public void setDate_reception(String date_reception) {
         this.date_reception = date_reception;
     }
 
-    public Date getDate_livraison() {
+    public String getDate_livraison() {
         return date_livraison;
     }
 
-    public void setDate_livraison(Date date_livraison) {
+    public void setDate_livraison(String date_livraison) {
         this.date_livraison = date_livraison;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAddresse_livraison() {
+        return addresse_livraison;
+    }
+
+    public void setAddresse_livraison(String addresse_livraison) {
+        this.addresse_livraison = addresse_livraison;
+    }
+
+    //Autres méthodes
+    //Méthode qui retourne le titre du trajet
+    public String getTitle() {
+        return "Colis : "+getPrenom_destinataire().toUpperCase() + " -- " + getNom_destinataire().toUpperCase();
     }
 }

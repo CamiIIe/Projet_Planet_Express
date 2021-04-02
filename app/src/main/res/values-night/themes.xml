@@ -1,16 +1,62 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Projet_Planet_Express" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Projet_Planet_Express.Night" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/red_dark</item>
-        <item name="colorPrimaryVariant">@color/red_light</item>
-        <item name="colorOnPrimary">@color/pink_light</item>
+        <item name="colorPrimary">#05152E</item>
+        <item name="colorPrimaryVariant">#2A6EA5</item>
+        <item name="colorOnPrimary">@color/blue_dark</item>
+
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/blue_dark</item>
-        <item name="colorSecondaryVariant">@color/pink_sweet</item>
-        <item name="colorOnSecondary">@color/teal_200</item>
+        <item name="colorSecondary">#00BCD4</item>
+        <item name="colorSecondaryVariant">#03A9F4</item>
+        <item name="colorOnSecondary">#527591</item>
+
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
         <!-- Customize your theme here. -->
+    </style>
+
+    <!-- Style pour faire disparaître l'action bar de base de l'application -->
+    <style name = "NoActionBar" parent = "Theme.Projet_Planet_Express.Night">
+        <item name = "android:windowActionBar">false</item>
+        <item name = "android:windowNoTitle">true</item>
+    </style>
+
+    <!-- Style pour la toolbar et ses icones -->
+    <style name="ToolbarColoredIcons" parent="Theme.Projet_Planet_Express.Night">
+        <item name="android:textColorSecondary">@color/blue_dark</item>
+    </style>
+
+    <!-- Style pour le DatePicker Spinner -->
+    <style name="Spinner" parent="Theme.Projet_Planet_Express.Night">
+        <item name="colorControlNormal">#05152E</item>
+        <item name="colorControlActivated">#2A6EA5</item>
+        <item name="android:editTextStyle">@color/blue_dark</item>
+    </style>
+
+    <!-- Style pour un tableau de data -->
+    <style name="Tableau" parent="Theme.Projet_Planet_Express.Night">
+        <item name="android:layout_marginBottom">1dp</item>
+        <item name="background">@drawable/table_border</item>
+    </style>
+
+    <!-- Style pour les paramètres -->
+    <style name="Parametre" parent="Theme.MaterialComponents.DayNight">
+        <item name = "android:windowActionBar">false</item>
+        <item name = "android:windowNoTitle">true</item>
+
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#05152E</item>
+        <item name="colorPrimaryVariant">#2A6EA5</item>
+        <item name="colorOnPrimary">@color/blue_dark</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#00BCD4</item>
+        <item name="colorSecondaryVariant">#03A9F4</item>
+        <item name="colorOnSecondary">#527591</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
     </style>
 </resources>

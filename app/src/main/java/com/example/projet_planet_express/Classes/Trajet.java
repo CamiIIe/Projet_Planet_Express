@@ -13,34 +13,25 @@ public class Trajet {
     private String heure_arrivee;
     private String date;
 
+    private String email;
+
     //Attributs pour gérer le tri
     private boolean prochainement = true;
 
     //Attributs pour gérer les détails
-    private String details_d;
-    private String details_a;
+    //private String details_d;
+    //private String details_a;
 
     //Constructeurs
     public Trajet() {
 
     }
 
-    public Trajet(String depart, String arrivee, String heure_depart, String heure_arrivee, String date) {
+    public Trajet(String depart, String arrivee, String date, String mail) {
         this.depart = depart;
         this.arrivee = arrivee;
-        this.heure_depart = heure_depart;
-        this.heure_arrivee = heure_arrivee;
         this.date = date;
-    }
-
-    public Trajet(String depart, String arrivee, String heure_depart, String heure_arrivee, String date, String details_d, String details_a) {
-        this.depart = depart;
-        this.arrivee = arrivee;
-        this.heure_depart = heure_depart;
-        this.heure_arrivee = heure_arrivee;
-        this.date = date;
-        this.details_d = details_d;
-        this.details_a = details_a;
+        this.email = mail;
     }
 
     //Getters et Setters
@@ -84,6 +75,14 @@ public class Trajet {
         this.date = date;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public boolean isProchainement() {
         return prochainement;
     }
@@ -92,9 +91,24 @@ public class Trajet {
         this.prochainement = prochainement;
     }
 
+    //ToString
+
+
+    @Override
+    public String toString() {
+        return "Trajet{" +
+                "depart='" + depart + '\'' +
+                ", arrivee='" + arrivee + '\'' +
+                ", heure_depart='" + heure_depart + '\'' +
+                ", heure_arrivee='" + heure_arrivee + '\'' +
+                ", date='" + date + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
+
     //Autres méthodes
     //Méthode qui retourne le titre du trajet
-    private String getTitle() {
+    public String getTitle() {
         if (getDepart().equals(getArrivee())) {
             return "Trajet : "+getDepart().toUpperCase();
         }

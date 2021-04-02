@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/pink_light_2"
-    tools:context=".Activities.AjoutTrajetActivity">
+    tools:context=".Fragments.FormulaireAjoutColisFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,21 +14,21 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="59dp"
-            android:src="@drawable/ic_trajets"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="45dp"
+            android:src="@mipmap/icon_colis"
             app:tint="@color/red_dark" />
 
         <TextView
             android:id="@+id/frag_profil_titre"
-            android:layout_width="350dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="100dp"
             android:layout_marginTop="50dp"
             android:fontFamily="casual"
             android:gravity="center"
-            android:text="Ajouter un trajet"
+            android:text="Ajouter un colis"
             android:textColor="@color/red_dark"
             android:textSize="30dp"
             android:textStyle="bold" />
@@ -40,60 +39,69 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="130dp"
         android:background="@color/pink_light"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_titre"
+            android:id="@+id/tv_titre_colis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="Informations du trajet"
+            android:text="Informations du colis"
             android:textColor="@color/red_dark"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/et_depart_ajout_trajet"
+            android:id="@+id/et_nom_destinataire_colis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:hint="Ville de départ" />
+            android:hint="Nom du destinataire" />
 
         <EditText
-            android:id="@+id/et_arrivee_ajout_trajet"
+            android:id="@+id/et_prenom_destinataire_colis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:hint="Ville d'arrivée" />
+            android:hint="Prénom du destinataire" />
 
         <EditText
-            android:id="@+id/et_date_trajet"
+            android:id="@+id/et_poids_ajout_colis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
-            android:hint="Date du trajet" />
+            android:hint="Poids" />
+
+        <EditText
+            android:id="@+id/et_date_colis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="Date de réception " />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="400dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_annuler_ajout_trajet"
+            android:id="@+id/btn_annuler_ajout_colis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -102,7 +110,7 @@
             android:text="@string/annuler" />
 
         <Button
-            android:id="@+id/btn_valider_ajout_trajet"
+            android:id="@+id/btn_valider_ajout_colis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -111,4 +119,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>

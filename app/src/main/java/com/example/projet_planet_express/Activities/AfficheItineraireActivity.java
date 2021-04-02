@@ -87,11 +87,11 @@ public class AfficheItineraireActivity extends AppCompatActivity implements OnMa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ajout_trajet);
+        setContentView(R.layout.activity_affiche_itineraire);
 
         //Assignation des EditTexts
-        depart = findViewById(R.id.et_depart_ajout_trajet);
-        arrivee = findViewById(R.id.et_arrivee_ajout_trajet);
+        depart = findViewById(R.id.et_depart_affiche_trajet);
+        arrivee = findViewById(R.id.et_arrivee_affiche_trajet);
 
         /*
         //Assignation et gestion des EditText pour saisir l'heure du trajet
@@ -129,7 +129,7 @@ public class AfficheItineraireActivity extends AppCompatActivity implements OnMa
         mapFragment.getMapAsync(this);
 
         //Assignation et gestion du bouton annuler
-        annuler = findViewById(R.id.btn_annuler_ajout_trajet);
+        annuler = findViewById(R.id.btn_annuler_affiche_trajet);
         annuler.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,7 +139,7 @@ public class AfficheItineraireActivity extends AppCompatActivity implements OnMa
         });
 
         //Assignation et gestion du bouton valider
-        valider = findViewById(R.id.btn_valider_ajout_trajet);
+        valider = findViewById(R.id.btn_valider_affiche_trajet);
         valider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -241,7 +241,7 @@ public class AfficheItineraireActivity extends AppCompatActivity implements OnMa
         String titre = "Trajet : "+ ville_d.toUpperCase() + " - " + ville_a.toUpperCase();
         return titre;
     }
-
+/*
     //Méthode pour créer un objet Trajet
     private Trajet createTrajet(String depart, String arrivee, String temps_d, String temps_a) {
         //Récupération et découpage de la saisie
@@ -256,9 +256,9 @@ public class AfficheItineraireActivity extends AppCompatActivity implements OnMa
         String date = getDateInString();
 
         //Création de l'objet trajet
-        Trajet trajet = new Trajet(ville_d, ville_a, temps_d, temps_a, date, depart, arrivee);
+        Trajet trajet = new Trajet(ville_d, ville_a, date, );
         return trajet;
-    }
+    } */
 
     //Méthode pour avoir la date
     private String getDateInString() {

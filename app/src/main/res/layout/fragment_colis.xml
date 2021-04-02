@@ -7,6 +7,9 @@
     android:background="@color/pink_light_2"
     tools:context=".Fragments.ColisFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,12 +24,22 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
+        android:layout_marginLeft="90dp"
         android:fontFamily="casual"
         android:gravity="center"
         android:text="@string/mes_colis"
         android:textColor="@color/red_dark"
         android:textSize="30dp"
         android:textStyle="bold" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_colis"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+    </FrameLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -40,6 +53,7 @@
         android:gravity="center">
 
         <RadioButton
+            android:id="@+id/rb_prochain_colis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
@@ -48,6 +62,7 @@
             android:textStyle="bold"/>
 
         <RadioButton
+            android:id="@+id/rb_livre_colis"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Livrés"
@@ -68,7 +83,18 @@
         android:orientation="vertical">
 
         <ListView
+            android:id="@+id/list_colis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/frag_colis_btn_float"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:src="@android:drawable/ic_menu_send"/>
+
 </FrameLayout>

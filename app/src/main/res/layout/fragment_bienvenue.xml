@@ -29,19 +29,30 @@
         android:textSize="30dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/frag_bienvenue_tv_corps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="200dp"
-        android:textColor="@color/pink_sweet" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/frag_bienvenue_tv_corps2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="400dp"
-        android:textColor="@color/pink_sweet" />
+        <TextView
+            android:id="@+id/frag_bienvenue_tv_corps2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="100dp"
+            android:textSize="25dp"
+            android:textColor="@color/pink_sweet" />
+
+        <TextView
+            android:id="@+id/frag_bienvenue_tv_corps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="220dp"
+            android:textSize="25dp"
+            android:textColor="@color/pink_sweet" />
+
+    </RelativeLayout>
+
 </FrameLayout>

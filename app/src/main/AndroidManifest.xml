@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.projet_planet_express">
-
-    <!-- Pour la localisatoin de l'utilisateur -->
+    <!-- Pour la localisation de l'utilisateur -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
@@ -17,25 +16,21 @@
         <!-- Pour les services Google Play -->
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-
-        <!-- Pour l'API Google Maps -->
+            android:value="@integer/google_play_services_version" /> <!-- Pour l'API Google Maps -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/maps_api_key" />
 
-        <activity android:name=".Activities.AfficheItineraireActivity">
-
-        </activity>
-
+        <activity android:name=".Activities.AjoutTrajetActivity"></activity>
+        <activity android:name=".Activities.AfficheItineraireActivity"></activity>
         <activity android:name=".Activities.ParametresActivity" />
         <activity android:name=".Activities.PrincipalActivity">
-        </activity>
-        <activity android:name=".Activities.Planet_Express_Home" />
-        <activity android:name=".Activities.InscriptionActivity" >
 
         </activity>
-        <activity android:name=".Activities.ConnexionActivity" >
+        <activity android:name=".Activities.Planet_Express_Home">
+        </activity>
+        <activity android:name=".Activities.InscriptionActivity"></activity>
+        <activity android:name=".Activities.ConnexionActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

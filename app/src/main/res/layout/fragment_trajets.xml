@@ -7,28 +7,52 @@
     android:background="@color/pink_light_2"
     tools:context=".Fragments.TrajetFragment">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="59dp"
-        android:layout_marginLeft="98dp"
-        android:src="@drawable/ic_trajets"
-        app:tint="@color/red_dark" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/frag_profil_titre"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:fontFamily="casual"
-        android:gravity="center"
-        android:text="@string/mes_trajets"
-        android:textColor="@color/red_dark"
-        android:textSize="30dp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:textColor="@color/red_dark"
+            android:textSize="30dp"
+            android:textStyle="bold"/>
 
-    <LinearLayout
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="59dp"
+            android:src="@drawable/ic_trajets"
+            app:tint="@color/red_dark" />
+
+        <TextView
+            android:id="@+id/frag_profil_titre"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="80dp"
+            android:fontFamily="casual"
+            android:gravity="center"
+            android:text="@string/mes_trajets"
+            android:textColor="@color/red_dark"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_trajet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+    </FrameLayout>
+
+    <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -40,6 +64,7 @@
         android:gravity="center">
 
         <RadioButton
+            android:id="@+id/rb_prochain_trajet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
@@ -48,12 +73,13 @@
             android:textStyle="bold"/>
 
         <RadioButton
+            android:id="@+id/rb_tous_trajet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tous"
             android:textColor="@color/red_dark"
             android:textStyle="bold"/>
-    </LinearLayout>
+    </RadioGroup>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -68,6 +94,7 @@
         android:orientation="vertical">
 
         <ListView
+            android:id="@+id/lv_trajet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
