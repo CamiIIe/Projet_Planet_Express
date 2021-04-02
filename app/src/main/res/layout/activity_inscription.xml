@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink_light_2"
+    android:background="?attr/colorOnBackground"
     android:orientation="vertical"
     tools:context=".Activities.InscriptionActivity">
 
@@ -22,7 +22,7 @@
             android:fontFamily="casual"
             android:gravity="center"
             android:text="@string/inscription"
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -31,7 +31,7 @@
             android:layout_height="380dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:background="@color/pink_light"
+            android:background="?attr/colorOnPrimary"
             android:orientation="vertical">
 
             <TextView
@@ -41,7 +41,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:text="@string/informations_personnelles"
-                android:textColor="@color/red_dark"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 

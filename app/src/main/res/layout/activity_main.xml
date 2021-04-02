@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink_light_2"
+    android:background="?attr/colorOnBackground"
     tools:context=".Activities.Planet_Express_Home">
 
     <ImageView
@@ -28,7 +28,8 @@
             android:layout_marginTop="400dp"
             android:layout_marginLeft="30dp"
             android:text="Connexion"
-            android:textColor="@color/pink_light_2" />
+            android:background="?attr/colorPrimary"
+            android:textColor="?attr/colorOnBackground" />
 
         <TextView
             android:id="@+id/tv_inscription"
@@ -36,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="454dp"
             android:text="@string/pas_de_compte_inscris_toi"
-            android:textColor="@color/pink_sweet" />
+            android:textColor="?attr/colorSecondaryVariant" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink_light_2"
+    android:background="?attr/colorOnBackground"
     tools:context=".Fragments.ColisFragment">
 
     <RelativeLayout
@@ -16,7 +16,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginLeft="75dp"
         android:src="@mipmap/icon_colis"
-        app:tint="@color/red_dark" />
+        app:tint="?attr/colorPrimary" />
 
     <TextView
         android:id="@+id/frag_profil_titre"
@@ -28,7 +28,7 @@
         android:fontFamily="casual"
         android:gravity="center"
         android:text="@string/mes_colis"
-        android:textColor="@color/red_dark"
+        android:textColor="?attr/colorPrimary"
         android:textSize="30dp"
         android:textStyle="bold" />
     </RelativeLayout>
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:text="@string/a_venir"
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textStyle="bold"/>
 
         <RadioButton
@@ -66,7 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Livrés"
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textStyle="bold"/>
     </LinearLayout>
 
@@ -78,7 +78,7 @@
         android:layout_marginTop="150dp"
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
-        android:background="@color/pink_light"
+        android:background="?attr/colorOnPrimary"
         android:gravity="center"
         android:orientation="vertical">
 

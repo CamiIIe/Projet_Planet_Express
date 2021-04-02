@@ -5,6 +5,8 @@
         <item name="colorPrimary">@color/red_dark</item>
         <item name="colorPrimaryVariant">@color/red_light</item>
         <item name="colorOnPrimary">@color/pink_light</item>
+        <item name ="colorOnBackground">@color/pink_light_2</item>
+        <item name ="colorAccent">@color/pink_light_3</item>
 
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#A3047B</item>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:layout_gravity="start"
-    android:background="@color/pink_light_2"
+    android:background="?attr/colorOnBackground"
     android:orientation="vertical"
     android:id="@+id/nav_header_layout">
     
@@ -23,7 +23,7 @@
         android:fontFamily="casual"
         android:gravity="center"
         android:text="Planet Express"
-        android:textColor="@color/red_dark"
+        android:textColor="?attr/colorPrimary"
         android:textSize="30dp"
         android:textStyle="bold" />
 

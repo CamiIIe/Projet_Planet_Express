@@ -3,8 +3,10 @@
     <style name="Theme.Projet_Planet_Express.Night" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#05152E</item>
-        <item name="colorPrimaryVariant">#2A6EA5</item>
+        <item name="colorPrimaryVariant">#074D9E</item>
         <item name="colorOnPrimary">@color/blue_dark</item>
+        <item name ="colorOnBackground">#052851</item>
+        <item name ="colorAccent">#2A6EA5</item>
 
         <!-- Secondary brand color. -->
         <item name="colorSecondary">#00BCD4</item>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink_light_2"
+    android:background="?attr/colorOnBackground"
     tools:context=".Activities.ConnexionActivity"
     android:id="@+id/connexion_style">
 
@@ -28,7 +28,7 @@
             android:fontFamily="casual"
             android:gravity="center"
             android:text="@string/connexion"
-            android:textColor="@color/red_dark"
+            android:textColor="?attr/colorPrimary"
             android:textSize="30dp"
             android:textStyle="bold" />
 
@@ -39,7 +39,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_marginTop="60dp"
-            android:background="@color/pink_light"
+            android:background="?attr/colorOnPrimary"
             android:orientation="vertical">
 
             <TextView
@@ -48,7 +48,7 @@
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="Saississez vos identifiants"
-                android:textColor="@color/red_dark"
+                android:textColor="?attr/colorPrimary"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
