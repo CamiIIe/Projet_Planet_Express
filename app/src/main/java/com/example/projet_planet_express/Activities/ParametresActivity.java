@@ -29,6 +29,11 @@ public class ParametresActivity extends AppCompatActivity {
             setTheme(R.style.Theme_Projet_Planet_Express);
         }
         setContentView(R.layout.activity_parametres);
+        /*
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            sw.setChecked(true);
+        }*/
+
 
         //Bouton back
         btn_back = findViewById(R.id.parametre_back);
